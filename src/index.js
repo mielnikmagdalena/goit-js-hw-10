@@ -64,8 +64,8 @@ function fetchCatInfo(breedId) {
 // Funkcja wyświetlająca informacje o kocie
 function showCatInfo(catInfo) {
   const { breed, description, temperament } = catInfo;
-
-  const breedName = breed.name;
+  console.log(catInfo);
+  const breedName = breed;
   const catDescription = description;
   const catTemperament = temperament;
 
