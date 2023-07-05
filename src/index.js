@@ -5,7 +5,7 @@ axios.defaults.headers.common['x-api-key'] =
   'live_Azme2SGnu6hL9Sr8t6i2ko7AHTHcmkv2YFx2dLSlUrOohIiXyuSbZh3xe00pBDOH';
 
 // Powiązanie elementów DOM
-const breedSelect = document.querySelector('#breed-select');
+const breedSelect = document.querySelector('.breed-select');
 const catInfoContainer = document.querySelector('.cat-info');
 const loader = document.querySelector('.loader');
 const error = document.querySelector('.error');
@@ -34,7 +34,10 @@ function showLoader() {
 function hideLoader() {
   loader.style.display = 'none';
 }
-
+// Funkcja wyświetlająca komunikat o błędzie
+function showError() {
+  error.style.display = 'block';
+}
 // Funkcja ukrywająca komunikat o błędzie
 function hideError() {
   error.style.display = 'none';
@@ -76,11 +79,6 @@ function showCatInfo(catInfo) {
 
   catInfoContainer.innerHTML = catInfoHTML;
   catInfoContainer.style.display = 'block';
-}
-
-// Funkcja wyświetlająca komunikat o błędzie
-function showError() {
-  error.style.display = 'block';
 }
 
 // Inicjalizacja aplikacji - pobranie listy ras kota
