@@ -49,6 +49,7 @@ function fetchCatInfo(breedId) {
   axios
     .get(`https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}`)
     .then(response => {
+      //console.log(response.data[0]);
       const catInfo = response.data[0];
       showCatInfo(catInfo);
     })
@@ -63,16 +64,14 @@ function fetchCatInfo(breedId) {
 
 // Funkcja wyświetlająca informacje o kocie
 function showCatInfo(catInfo) {
-  const { breed, description, temperament } = catInfo;
-  const breedName = breed;
-  const catDescription = description;
-  const catTemperament = temperament;
-
+  const { name, description, temperament } = catInfo.breeds[0];
+  const { url } = catInfo;
   const catInfoHTML = `
     <div>
-      <h2>${breedName}</h2>
-      <p><strong>Description:</strong> ${catDescription}</p>
-      <p><strong>Temperament:</strong> ${catTemperament}</p>
+    <img  src="${url}" alt="">
+      <h2>${name}</h2>
+      <p><strong>Description:</strong> ${description}</p>
+      <p><strong>Temperament:</strong> ${temperament}</p>
     </div>
   `;
 
